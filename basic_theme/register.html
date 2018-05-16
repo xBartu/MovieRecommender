@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./style.css">
-
     <title>Movie Recommender</title>
   </head>
   <body>
@@ -37,15 +36,15 @@
           <h1>Register</h1>
           <p><b>Attention</b>: By registering, you will accept the TERMS.</p>
           <form>
-            Username: <input type="text" required>
-            <br/>
-            Email: <input type="email" required>
-            <br/>
-            Password: <input type="pwd">
-            <br/>
-            Re-enter Password: <input type="pwd">
-            <br>
-            <input type="submit">
+            <label for="username">Username:</label> <br/>
+            <input type="text" class="form-control text" required> <br/>
+            <label for="email">Email:</label> <br/> 
+            <input type="email" class="form-control email" required> <br/>
+            <label for="pwd">Password:</label><br/>
+             <input type="pwd" class="form-control password" required><br/>
+            <label for="re-pwd">Re-enter Password:</label> <br/>
+            <input type="pwd" class="form-control password" required> <br/>
+            <input type="submit"  class="btn btn-primary">
           </form>
         </div>
       </div>
