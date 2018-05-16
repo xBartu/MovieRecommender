@@ -11,3 +11,6 @@ h2.movie-title {
 h2.movie-title:hover {
 	color:red;
 }
+.jumbotron {
+	margin-top: 1%;
+}
