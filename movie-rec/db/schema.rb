@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_19_115557) do
+ActiveRecord::Schema.define(version: 2018_05_19_120939) do
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "title"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 2018_05_19_115557) do
     t.string "photo_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stars_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "star_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["star_id", "user_id"], name: "index_stars_users_on_star_id_and_user_id"
+    t.index ["user_id", "star_id"], name: "index_stars_users_on_user_id_and_star_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
