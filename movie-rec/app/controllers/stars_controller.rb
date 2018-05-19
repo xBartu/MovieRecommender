@@ -1,5 +1,6 @@
 class StarsController < ApplicationController
   before_action :set_star, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:follow]
 
   # GET /stars
   # GET /stars.json
@@ -59,6 +60,9 @@ class StarsController < ApplicationController
       format.html { redirect_to stars_url, notice: 'Star was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def follow
   end
 
   private
