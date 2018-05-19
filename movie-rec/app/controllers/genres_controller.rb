@@ -1,5 +1,6 @@
 class GenresController < ApplicationController
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only:[:follow]
 
   # GET /genres
   # GET /genres.json
@@ -19,6 +20,11 @@ class GenresController < ApplicationController
 
   # GET /genres/1/edit
   def edit
+  end
+
+  # to follow genre
+  def follow
+    
   end
 
   # POST /genres
