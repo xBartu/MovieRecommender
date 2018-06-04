@@ -1,0 +1,46 @@
+movie-rec/*.rbc
+movie-rec/capybara-*.html
+movie-rec/.rspec
+movie-rec/log
+movie-rec/tmp
+movie-rec/public/system
+movie-rec/coverage/
+movie-rec/spec/tmp
+movie-rec/*.orig
+movie-rec/rerun.txt
+movie-rec/pickle-email-*.html
+
+# TODO Comment out this rule if you are OK with secrets being uploaded to the repo
+movie-rec/config/initializers/secret_token.rb
+movie-rec/config/master.key
+
+# Only include if you have production secrets in this file, which is no longer a Rails default
+# config/secrets.yml
+
+# dotenv
+# TODO Comment out this rule if environment variables can be committed
+movie-rec/.env
+
+## Environment normalization:
+movie-rec/.bundle
+movie-rec/vendor/bundle
+
+# these should all be checked in to normalize the environment:
+# Gemfile.lock, .ruby-version, .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+movie-rec/.rvmrc
+
+# if using bower-rails ignore default bower_components path bower.json files
+movie-rec/vendor/assets/bower_components
+movie-rec/*.bowerrc
+movie-rec/bower.json
+
+# Ignore pow environment settings
+movie-rec/.powenv
+
+# Ignore Byebug command history file.
+movie-rec/.byebug_history
+
+# Ignore node_modules
+movie-rec/node_modules/
