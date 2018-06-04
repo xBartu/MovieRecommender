@@ -144,3 +144,27 @@ Migrating to CreateGenres (20180604203808)
   ↳ bin/rails:9
   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
   ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-06-04 23:49:12 +0300
+  
+NoMethodError (undefined method `devise_for' for #<ActionDispatch::Routing::Mapper:0x00007fe8e80751b0>):
+  
+config/routes.rb:3:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-06-04 23:49:56 +0300
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/xroot/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/xroot/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by GenresController#show as HTML
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 909ms (Views: 900.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-04 23:49:57 +0300
+Processing by GenresController#show as HTML
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+
+
