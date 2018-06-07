@@ -11,6 +11,7 @@ class GenresController < ApplicationController
 
     def new
     	# new method
+    	# Warning: no user interaction
     	@genre = Genre.new
     end
 
