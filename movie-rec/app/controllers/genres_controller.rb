@@ -1,8 +1,6 @@
 class GenresController < ApplicationController
     def index
     	#index method
-        #list all the genres
-        # TODO introduce theme
         @genres = Genre.all
     end
 
