@@ -5,6 +5,7 @@ class GenresController < ApplicationController
     end
 
     def show
+    	#show method
     end
 
     def new
