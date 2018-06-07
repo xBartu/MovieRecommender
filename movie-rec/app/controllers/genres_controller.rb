@@ -15,13 +15,17 @@ class GenresController < ApplicationController
 
     def create
     	# create method
-		@genre = Genre.new(role_params)
+		@genre = Genre.new(genre_params)
 		# check the rule!
-		if(not @genre.save)
-			render 'new'
-		else
+		if(@genre.save)
 			# TODO when show works cahnge this!
 			redirect_to action: "index"
+		else
+			render 'new'
 		end
+    end
+
+    private def genre_params
+    	params.require(:genre).permit(:name, :desc)
     end
 end
