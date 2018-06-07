@@ -2,7 +2,7 @@ class RolesController < ApplicationController
 	# this controller is not interacted by users. The views are not important
 	http_basic_authenticate_with name: "root", password: "1234", except:[:index]
 	def new
-		# new method for new page
+		# new method
 		@role = Role.new
 	end
 
