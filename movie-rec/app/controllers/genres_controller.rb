@@ -33,6 +33,11 @@ class GenresController < ApplicationController
 		redirect_to action: "index"
 	end
 
+	def edit
+		# edit method
+		@genre = Genre.find(params[:id])
+	end
+
     private def genre_params
     	params.require(:genre).permit(:name, :desc)
     end
