@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # genres resources
   resources :genres do
   	get :follow
+  	get :unfollow
   end
 end
  

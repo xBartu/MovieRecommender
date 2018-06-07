@@ -10,6 +10,7 @@ class GenresController < ApplicationController
     def show
     	# show method
     	@genre = Genre.find(params[:id])
+    	@user_genres = current_user.genres
     end
 
     def new
@@ -62,7 +63,15 @@ class GenresController < ApplicationController
 		end
 		redirect_to @genre
 	end
-	
+
+	def unfollow
+		@genre = Genre.find(params[:genre_id])
+		if @genre.users.include?(current_user)
+			@genre.users.delete(current_user)
+		end
+		redirect_to @genre
+	end
+
     private def genre_params
     	params.require(:genre).permit(:name, :desc, :photo_url)
     end
