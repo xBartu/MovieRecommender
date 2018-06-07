@@ -38,6 +38,17 @@ class GenresController < ApplicationController
 		@genre = Genre.find(params[:id])
 	end
 
+	def update
+		# update method
+		@genre = Genre.find(params[:id])
+		# check for the rule
+		if(@genre.update(genre_params))
+			# TODO when show works cahnge this!
+			redirect_to action: "index"
+		else
+			render 'edit'
+		end
+
     private def genre_params
     	params.require(:genre).permit(:name, :desc)
     end
