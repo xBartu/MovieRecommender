@@ -1,0 +1,10 @@
+<div class="row">
+  <% @genres.each do |genre| %>
+    <div class="col-md-4">
+      <img src="<%= genre.photo_url %>">
+      <h2 class="movie-title"><%= genre.name %><%= genre.photo_url %></h2>
+      <p><%= genre.desc %></p>
+      <p><a class="btn btn-info" href="#" role="button">See Movies(will be implemented)</a></p>
+    </div>
+  <% end %>
+</div>
