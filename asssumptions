@@ -1,2 +1,3 @@
 I assumes follows:
 1- One person can be in only in one role(ie: Director is always a director!)
+2- Basic auth is enough for adding, editing and removing. If it was a real project, I would create user groups.
