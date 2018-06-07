@@ -57,7 +57,9 @@ class GenresController < ApplicationController
 
 	def follow
 		@genre = Genre.find(params[:genre_id])
-		@genre.users << current_user
+		unless @genre.users.include?(current_user)
+			@genre.users << current_user
+		end
 		redirect_to @genre
 	end
 	
