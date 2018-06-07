@@ -1,3 +1,4 @@
-I assumes follows:
+I assumes follows(In the real project, I do so or ask before taking further action):
 1- One person can be in only in one role(ie: Director is always a director!)
 2- If there is no interaction of the users, then basic auth is enough for adding, editing and removing. If it was a real project, I would create user groups.
+3- People do not need details(ie: Date of Birth is not stored). 
