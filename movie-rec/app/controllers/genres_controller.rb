@@ -24,8 +24,7 @@ class GenresController < ApplicationController
 		@genre = Genre.new(genre_params)
 		# check the rule!
 		if(@genre.save)
-			# TODO when show works cahnge this!
-			redirect_to action: "index"
+			redirect_to @genre
 		else
 			render 'new'
 		end
@@ -50,8 +49,7 @@ class GenresController < ApplicationController
 		@genre = Genre.find(params[:id])
 		# check for the rule
 		if(@genre.update(genre_params))
-			# TODO when show works cahnge this!
-			redirect_to action: "index"
+			redirect_to @genre
 		else
 			render 'edit'
 		end
