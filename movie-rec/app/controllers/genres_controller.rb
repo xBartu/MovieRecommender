@@ -54,6 +54,12 @@ class GenresController < ApplicationController
 			render 'edit'
 		end
 	end
+
+	def follow
+		@genre = Genre.find(params[:genre_id])
+		@genre.users << current_user
+		redirect_to @genre
+	end
 	
     private def genre_params
     	params.require(:genre).permit(:name, :desc, :photo_url)
