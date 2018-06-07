@@ -1,14 +1,24 @@
 <h1>Adding Role</h1>
 
-<%= form_for :role, url: roles_path do |f| %>
-    <% if @role.errors.any? %>
-        <% @role.errors.full_messages.each do |msg| %>
+<%= form_for :genre, url: genres_path do |f| %>
+    <% if @genre.errors.any? %>
+        <% @genre.errors.full_messages.each do |msg| %>
             <%= msg %>
         <% end %>
     <% end %>
     <p>
-        <%= f.label :title %><br/>
-        <%= f.text_field :title,  class: "form-control text"%> 
+        <%= f.label :name %><br/>
+        <%= f.text_field :name,  class: "form-control text"%> 
+    </p>
+
+    <p>
+        <%= f.label :photo %><br/>
+        <%= f.text_field :photo_url,  class: "form-control text"%> 
+    </p>
+
+    <p>
+        <%= f.label :desc %><br/>
+        <%= f.text_field :desc,  class: "form-control text"%> 
     </p>
 
     <p>
