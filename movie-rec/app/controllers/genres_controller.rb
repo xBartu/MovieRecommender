@@ -10,6 +10,7 @@ class GenresController < ApplicationController
     end
 
     def new
+    	# new method
     	@genre = Genre.new
     end
 
@@ -24,6 +25,13 @@ class GenresController < ApplicationController
 			render 'new'
 		end
     end
+
+    def destroy
+		# destroy method
+		@genre = Genre.find(params[:id])
+		@genre.destroy
+		redirect_to action: "index"
+	end
 
     private def genre_params
     	params.require(:genre).permit(:name, :desc)
