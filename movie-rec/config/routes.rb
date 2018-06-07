@@ -5,5 +5,8 @@ Rails.application.routes.draw do
 
   #roles resources
   resources :roles
+
+  # genres resources
+  resources :genres
 end
  
