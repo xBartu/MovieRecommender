@@ -1,0 +1,18 @@
+<h1>Editting Role</h1>
+
+<%= form_for :role, url: role_path(@role), method: :patch  do |f| %>
+    <% if @role.errors.any? %>
+        <% @role.errors.full_messages.each do |msg| %>
+            <%= msg %>
+        <% end %>
+    <% end %>
+    <p>
+        <%= f.label :title %><br/>
+        <%= f.text_field :title,  class: "form-control text"%> 
+    </p>
+
+    <p>
+        <%= f.submit class: "btn btn-primary" %>
+    </p
+<% end %>
+
