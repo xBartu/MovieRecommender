@@ -4,8 +4,10 @@ one:
   title: MyString
   desc: MyText
   photo: MyString
+  genre: one
 
 two:
   title: MyString
   desc: MyText
   photo: MyString
+  genre: two

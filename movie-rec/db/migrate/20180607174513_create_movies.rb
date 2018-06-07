@@ -4,6 +4,7 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :desc
       t.string :photo
+      t.references :genre, foreign_key: true
 
       t.timestamps
     end
