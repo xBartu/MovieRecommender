@@ -27,6 +27,11 @@ class RolesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@role = Role.find(params[:id])
+		@role.destroy
+	end
+
 	private def role_params
 		# no need for hidden inputs!
 		params.require(:role).permit(:title)
