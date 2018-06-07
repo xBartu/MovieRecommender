@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_07_172055) do
+ActiveRecord::Schema.define(version: 2018_06_07_172524) do
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.text "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "people", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "photo_url"
+    t.string "first_name"
+    t.string "last_name"
+    t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
