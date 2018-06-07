@@ -1,4 +1,8 @@
 class RolesController < ApplicationController
+	def new
+		@role = Role.new
+	end
+	
 	def create
 		@role = Role.new(role_params)
 		if not(@role.save)
