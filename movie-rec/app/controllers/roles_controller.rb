@@ -28,6 +28,7 @@ class RolesController < ApplicationController
 	end
 
 	def destroy
+		# destroy method
 		@role = Role.find(params[:id])
 		@role.destroy
 	end
