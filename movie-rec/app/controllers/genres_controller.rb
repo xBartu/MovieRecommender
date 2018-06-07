@@ -1,11 +1,12 @@
 class GenresController < ApplicationController
     def index
-    	#index method
+    	# index method
         @genres = Genre.all
     end
 
     def show
-    	#show method
+    	# show method
+    	@genre = Genre.find(params[:id])
     end
 
     def new
