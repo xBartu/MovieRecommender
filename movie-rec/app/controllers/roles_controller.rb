@@ -34,7 +34,7 @@ class RolesController < ApplicationController
 		@role.destroy
 	end
 
-	def show
+	def index
 		@roles = Role.all
 	end
 
