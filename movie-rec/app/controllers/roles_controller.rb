@@ -1,4 +1,5 @@
 class RolesController < ApplicationController
+	# this controller is not interacted by users. The views are not important
 	def new
 		# new method for new page
 		@role = Role.new
@@ -31,6 +32,10 @@ class RolesController < ApplicationController
 		# destroy method
 		@role = Role.find(params[:id])
 		@role.destroy
+	end
+
+	def show
+		@roles = Role.all
 	end
 
 	private def role_params
