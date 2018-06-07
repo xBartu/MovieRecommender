@@ -1,6 +1,6 @@
 <h1>Editing Genre</h1>
 
-<%= form_for :genre, url: genres_path(@genre), method: :patch do |f| %>
+<%= form_for :genre, url: genre_path(@genre), method: :patch do |f| %>
     <% if @genre.errors.any? %>
         <% @genre.errors.full_messages.each do |msg| %>
             <%= msg %>
