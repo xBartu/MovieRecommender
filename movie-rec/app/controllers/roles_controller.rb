@@ -11,6 +11,8 @@ class RolesController < ApplicationController
 		# check the rule!
 		if(not @role.save)
 			render 'new'
+		else
+			redirect_to action: "index"
 		end
 	end
 
@@ -25,6 +27,8 @@ class RolesController < ApplicationController
 		# check rules
 		if(not @role.update(role_params))
 			render 'edit'
+		else
+			redirect_to action: "index"
 		end
 	end
 
@@ -32,9 +36,11 @@ class RolesController < ApplicationController
 		# destroy method
 		@role = Role.find(params[:id])
 		@role.destroy
+		redirect_to action: "index"
 	end
 
 	def index
+		# index method
 		@roles = Role.all
 	end
 

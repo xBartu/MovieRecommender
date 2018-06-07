@@ -2,5 +2,5 @@
 <%= link_to "Add a role", '/roles/new'%>
 <br>
 <% @roles.each do |role| %>
-    <%= role.title %> - <%= link_to "Edit", edit_role_path(role) %> 
+    <%= role.title %> - <%= link_to "Edit", edit_role_path(role) %>  - <%= link_to "Destroy", role_path(role), method: :delete, data: {confirm: "Are you sure?"}%> <br>
 <% end %>
