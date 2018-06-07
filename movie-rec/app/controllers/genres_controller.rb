@@ -1,6 +1,7 @@
 class GenresController < ApplicationController
 	# Genres Controller
-	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show]
+	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show, :follow, :unfollow]
+	before_action :authenticate_user!, except:[:index, :show, :new, :create, :destroy, :edit, :update]
 
     def index
     	# index method
@@ -10,7 +11,9 @@ class GenresController < ApplicationController
     def show
     	# show method
     	@genre = Genre.find(params[:id])
-    	@user_genres = current_user.genres
+    	if(current_user)
+    		@user_genres = current_user.genres
+    	end
     end
 
     def new
