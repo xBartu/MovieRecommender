@@ -16,6 +16,7 @@ class GenresController < ApplicationController
 
     def create
     	# create method
+    	# Warning: no user interaction
 		@genre = Genre.new(genre_params)
 		# check the rule!
 		if(@genre.save)
@@ -28,6 +29,7 @@ class GenresController < ApplicationController
 
     def destroy
 		# destroy method
+		# Warning: no user interaction
 		@genre = Genre.find(params[:id])
 		@genre.destroy
 		redirect_to action: "index"
@@ -35,6 +37,7 @@ class GenresController < ApplicationController
 
 	def edit
 		# edit method
+		# Warning: no user interaction
 		@genre = Genre.find(params[:id])
 	end
 
