@@ -60,7 +60,9 @@ class GenresController < ApplicationController
 	end
 
 	def follow
+		# follow a genre
 		@genre = Genre.find(params[:genre_id])
+		# do not follow if user already follows
 		unless @genre.users.include?(current_user)
 			@genre.users << current_user
 		end
@@ -68,7 +70,9 @@ class GenresController < ApplicationController
 	end
 
 	def unfollow
+		# unfollow method
 		@genre = Genre.find(params[:genre_id])
+		# do not follow if user already follows
 		if @genre.users.include?(current_user)
 			@genre.users.delete(current_user)
 		end
