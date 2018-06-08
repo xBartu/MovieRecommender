@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   	get :follow
   	get :unfollow
   end
+
+  # people resources
+  resources :people
 end
  

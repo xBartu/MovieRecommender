@@ -1,4 +1,7 @@
 class PeopleController < ApplicationController
+	#people controller
+	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show]
+	
 	def index
 		# index method
 		@people = Person.all
