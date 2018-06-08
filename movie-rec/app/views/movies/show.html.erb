@@ -13,18 +13,18 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">First</th>
       <th scope="col">Last</th>
       <th scope="col">Role</th>
     </tr>
   </thead>
   <tbody>
+    <% @movie.people.each do |person| %>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td><%= person.first_name %></td>
+      <td><%= person.last_name %></td>
+      <td><%= person.role.title%></td>
     </tr>
+    <% end %>
   </tbody>
 </table>

@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   resources :roles
 
   #movies resources
-  resources :movies
+  resources :movies do
+    get :add_people
+    post :add_person
+  end
 
   # genres resources
   resources :genres do

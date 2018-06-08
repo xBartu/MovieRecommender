@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
 	#movies controller
-
+	protect_from_forgery with: :null_session
+	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show]
+	
 	def index
 		# index method 
 		@movies = Movie.all
@@ -62,15 +64,18 @@ class MoviesController < ApplicationController
 		# add_people method(view)
 		# Warning: no user interaction
 		@people = Person.all
+		@movie = Movie.find(params[:movie_id])
 	end
 
 	def add_person
 		# add person method
 		# Warning: no user interaction
 		@movie = Movie.find(params[:movie_id])
-		person = Person.find(movie_person_params)
+		person = Person.find(movie_person_params["person_id"])
 		unless @movie.people.include?(person)
 			@movie.people << person
+		else
+			@movie.people.delete(person)
 		end
 		redirect_to @movie
 	end
