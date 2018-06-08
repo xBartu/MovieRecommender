@@ -1,4 +1,9 @@
 class PeopleController < ApplicationController
+	def index
+		# index method
+		@people = Person.all
+	end
+	
 	def new
 		# new method
 		@person = Person.new
