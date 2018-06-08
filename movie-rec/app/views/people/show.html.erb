@@ -1,16 +1,18 @@
 <div class="jumbotron">
-	<img style="float:left" src="<%= @person.photo_url %>" class="person_image"/>
-	<div class="genres-text" >
-		<div class="col-sm-8 mx-auto">
-			<h1><%= @person.first_name %> <%= @person.last_name %></h1>
-			<p><%= @person.bio %></p>
-			<% if user_signed_in? %>
-				<% if not @user_people.include?(@person) %>
-					<a class="btn btn-primary" href="/people/<%= @person.id %>/like/" role="button">Like!</a>
-				<% else %>
-					<a class="btn btn-danger" href="/people/<%= @person.id %>/unlike/" role="button">UnLike!</a>
+	<div class="clearfix" >
+		<img style="float:left" src="<%= @person.photo_url %>" class="person_image"/>
+		<div class="person-text">
+			<div class="col-sm-8 mx-auto">
+				<h1><%= @person.first_name %> <%= @person.last_name %></h1>
+				<p><%= @person.bio %></p>
+				<% if user_signed_in? %>
+					<% if not @user_people.include?(@person) %>
+						<a class="btn btn-primary" href="/people/<%= @person.id %>/like/" role="button">Like!</a>
+					<% else %>
+						<a class="btn btn-danger" href="/people/<%= @person.id %>/unlike/" role="button">UnLike!</a>
+					<% end %>
 				<% end %>
-			<% end %>
+			</div>
 		</div>
 	</div>
 </div>
