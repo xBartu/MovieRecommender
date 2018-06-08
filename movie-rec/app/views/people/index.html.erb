@@ -1,0 +1,10 @@
+<div class="row">
+  <% @people.each do |person| %>
+    <div class="col-md-4">
+      <img src="<%= person.photo_url %>">
+      <h2 class="person-title"><%= person.first_name %> - <%= person.last_name %></h2>
+      <p><%= person.bio.first(400) %>...</p>
+      <p><a class="btn btn-info" href="/genres/<%= person.id %>" role="button">View Details</a></p>
+    </div>
+  <% end %>
+</div>
