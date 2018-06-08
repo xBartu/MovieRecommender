@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   #roles resources
   resources :roles
 
+  #movies resources
+  resources :movies
+
   # genres resources
   resources :genres do
   	get :follow
