@@ -57,6 +57,15 @@ class PeopleController < ApplicationController
 		redirect_to action: "index"
 	end
 
+	def like
+		# like method
+		@person = People.find(params[:person_id])
+		unless @person.users.include?(current_user)
+			@person.users << current_user
+		end
+		redirect_to @person
+	end
+
 	private def person_params
 		params.require(:person).permit(:photo_url, :first_name, :last_name, :bio, :role_id)
 	end
