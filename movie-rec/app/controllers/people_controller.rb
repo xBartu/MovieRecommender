@@ -60,8 +60,19 @@ class PeopleController < ApplicationController
 	def like
 		# like method
 		@person = People.find(params[:person_id])
+		#check if user already liked!
 		unless @person.users.include?(current_user)
 			@person.users << current_user
+		end
+		redirect_to @person
+	end
+
+	def unlike
+		# unlike method
+		@person = People.find(params[:person_id])
+		#check if user already didn't like!
+		if @person.users.include?(current_user)
+			@person.users.delete(current_user)
 		end
 		redirect_to @person
 	end
