@@ -82,7 +82,22 @@ class MoviesController < ApplicationController
 
 	def notification
 		# notification method
-		@movies = Movie.where("created_at>?",current_user.created_at)
+
+		# TODO START {convert it to sql}
+		arr = Array.new
+		current_user.people.each do |person|
+			person.movies.each do |movie|
+				if movie.created_at > current_user.created_at
+					arr.push(movie) 
+				end
+			end
+		end
+		movies = Movie.where(genre_id:current_user.genres).where("created_at>?",current_user.created_at)
+		movies.each do |movie|
+			arr.push(movie)
+		end
+		@h = arr
+		# TODO END
 	end
 
 	private def movie_params
