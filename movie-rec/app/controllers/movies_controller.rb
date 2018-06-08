@@ -50,6 +50,13 @@ class MoviesController < ApplicationController
 		end
 	end
 
+	def destroy
+		# destroy method
+		# Warning: no user interaction
+		@movie = Movie.find(params[:id])
+		@movie.destroy
+		redirect_to action: "index"
+	end
 
 	private def movie_params
 		params.require(:movie).permit(:title, :desc, :photo, :genre_id)
