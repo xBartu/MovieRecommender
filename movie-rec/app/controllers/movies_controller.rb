@@ -96,7 +96,7 @@ class MoviesController < ApplicationController
 		movies.each do |movie|
 			arr.push(movie)
 		end
-		@h = arr
+		@h = arr.uniq
 		# TODO END
 	end
 
