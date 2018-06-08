@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
 
   # people resources
-  resources :people
+  resources :people do 
+    get :like
+    get :unlike
+  end
 end
  

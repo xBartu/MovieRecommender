@@ -5,8 +5,11 @@
 			<h1><%= @person.first_name %> <%= @person.last_name %></h1>
 			<p><%= @person.bio %></p>
 			<% if user_signed_in? %>
-					<a class="btn btn-primary" href="/genres/<%= @person.id %>/follow/" role="button">Like!</a>
-					<a class="btn btn-danger" href="/genres/<%= @person.id %>/unfollow/" role="button">UnLike!</a>
+				<% if not @user_people.include?(@person) %>
+					<a class="btn btn-primary" href="/people/<%= @person.id %>/like/" role="button">Like!</a>
+				<% else %>
+					<a class="btn btn-danger" href="/people/<%= @person.id %>/unlike/" role="button">UnLike!</a>
+				<% end %>
 			<% end %>
 		</div>
 	</div>

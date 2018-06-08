@@ -30,12 +30,14 @@ class PeopleController < ApplicationController
 	def show
     	# show method
     	@person = Person.find(params[:id])
+    	@user_people = current_user.people
     end
 
     def edit
     	# edit method
     	# Warning: no user interaction
     	@person = Person.find(params[:id])
+    	@roles = Role.all
     end
 
     def update
@@ -60,7 +62,7 @@ class PeopleController < ApplicationController
 
 	def like
 		# like method
-		@person = People.find(params[:person_id])
+		@person = Person.find(params[:person_id])
 		#check if user already liked!
 		unless @person.users.include?(current_user)
 			@person.users << current_user
@@ -70,7 +72,7 @@ class PeopleController < ApplicationController
 
 	def unlike
 		# unlike method
-		@person = People.find(params[:person_id])
+		@person = Person.find(params[:person_id])
 		#check if user already didn't like!
 		if @person.users.include?(current_user)
 			@person.users.delete(current_user)
