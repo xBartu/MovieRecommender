@@ -11,6 +11,7 @@ class GenresController < ApplicationController
     def show
     	# show method
     	@genre = Genre.find(params[:id])
+    	@movies = Movie.where(genre: @genre)
     	if(current_user)
     		@user_genres = current_user.genres
     	end
