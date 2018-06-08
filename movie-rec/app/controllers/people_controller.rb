@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
 	#people controller
-	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show]
+	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show, :like, :unlike]
 	before_action :authenticate_user!, except:[:index, :show, :new, :create, :destroy, :edit, :update]
 	
 	def index
