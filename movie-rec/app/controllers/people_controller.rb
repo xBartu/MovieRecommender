@@ -22,6 +22,7 @@ class PeopleController < ApplicationController
 			redirect_to @person
 		else
 			render 'new'
+		end
 	end
 
 	def show
