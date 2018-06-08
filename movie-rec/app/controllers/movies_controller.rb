@@ -26,6 +26,26 @@ class MoviesController < ApplicationController
 		end
 	end
 
+	def edit
+    	# edit method
+    	# Warning: no user interaction
+    	@movie = Movie.find(params[:id])
+    	@genres = Genre.all
+    end
+
+    def update
+		# update method
+		# Warning: no user interaction
+		@movie = Movie.find(params[:id])
+		# check for the rule
+		if(@movie.update(person_params))
+			redirect_to @movie
+		else
+			render 'edit'
+		end
+	end
+
+
 	private def movie_params
 		params.require(:movie).permit(:title, :desc, :photo, :genre_id)
 	end
