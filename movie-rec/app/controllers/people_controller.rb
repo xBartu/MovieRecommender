@@ -6,6 +6,7 @@ class PeopleController < ApplicationController
 
 	def new
 		# new method
+		# Warning: no user interaction
 		@person = Person.new
 	end
 
@@ -27,11 +28,13 @@ class PeopleController < ApplicationController
 
     def edit
     	# edit method
+    	# Warning: no user interaction
     	@person = Person.find(params[:id])
     end
 
     def update
 		# update method
+		# Warning: no user interaction
 		@person = Person.find(params[:id])
 		# check for the rule
 		if(@person.update(person_params))
@@ -40,7 +43,15 @@ class PeopleController < ApplicationController
 			render 'edit'
 		end
 	end
-	
+
+	def destroy
+		# destroy method
+		# Warning: no user interaction
+		@person = Person.find(params[:id])
+		@person.destroy
+		redirect_to action: "index"
+	end
+
 	private def person_params
 		params.require(:person).permit(:photo_url, :first_name, :last_name, :bio, :role_id)
 	end
