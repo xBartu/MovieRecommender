@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
 		# index method
 		@people = Person.all
 	end
-	
+
 	def new
 		# new method
 		@person = Person.new
@@ -22,4 +22,5 @@ class PeopleController < ApplicationController
 
 	private def person_params
 		params.require(:person).permit(:photo_url, :first_name, :last_name, :bio, :role_id)
+	end
 end
