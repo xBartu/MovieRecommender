@@ -38,7 +38,7 @@ class MoviesController < ApplicationController
 		# Warning: no user interaction
 		@movie = Movie.find(params[:id])
 		# check for the rule
-		if(@movie.update(person_params))
+		if(@movie.update(movie_params))
 			redirect_to @movie
 		else
 			render 'edit'
