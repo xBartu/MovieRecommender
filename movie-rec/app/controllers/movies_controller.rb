@@ -10,12 +10,14 @@ class MoviesController < ApplicationController
 		# new method
 		# Warning: no user interaction
 		@movie = Movie.new
+		@genres = Genre.all
 	end
 
 	def create
 		# create method
     	# Warning: no user interaction
 		@movie = Movie.new(movie_params)
+		@genres = Genre.all # TODO why needs?
 		# check the rule!
 		if(@movie.save)
 			redirect_to @movie
