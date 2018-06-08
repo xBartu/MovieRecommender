@@ -16,53 +16,16 @@
 		</div>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-4">
-		<img src="http://via.placeholder.com/350x200">
-		<h2 class="movie-title">Movie Number 1</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
+<% if @person.movies.any? %>
+	<h2>Movies that the person plays</h2>
+	<div class="row">
+		<% @person.movies.each do |movie| %>
+		<div class="col-md-4">
+			<img src="<%= movie.photo %>">
+			<h2 class="movie-title"><%= movie.title %></h2>
+			<p><%= movie.desc.first(400) %></p>
+			<p><a class="btn btn-info" href="/movies/<%= movie.id %>" role="button">View details </a></p>
+		</div>
+		<% end %>
 	</div>
-	<div class="col-md-4">
-		<img src="http://via.placeholder.com/350x200">
-		<h2 class="movie-title">Movie Number 2</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
-	</div>
-	<div class="col-md-4">
-		<img src="http://via.placeholder.com/350x200">
-		<h2 class="movie-title">Movie Number 3</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
-	</div>
-	<div class="col-md-4">
-		<img src="http://via.placeholder.com/350x200">
-		<h2 class="movie-title">Movie Number 1</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
-	</div>
-	<div class="col-md-4">
-		<img src="http://via.placeholder.com/350x200">
-		<h2 class="movie-title">Movie Number 1</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
-	</div>
-	<div class="col-md-4">
-		<img src="http://via.placeholder.com/350x200">
-		<h2 class="movie-title">Movie Number 1</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
-	</div>
-	<div class="col-md-4">
-		<img src="http://via.placeholder.com/350x200">
-		<h2 class="movie-title">Movie Number 1</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
-	</div>
-	<div class="col-md-4">
-		<img src="http://via.placeholder.com/350x200">
-		<h2 class="movie-title">Movie Number 1</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
-	</div>
-</div>
+<% end %>
