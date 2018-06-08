@@ -6,6 +6,11 @@ class MoviesController < ApplicationController
 		@movies = Movie.all
 	end
 
+	def show
+		# show method
+		@movie = Movie.find(params[:id])
+	end
+
 	def new
 		# new method
 		# Warning: no user interaction
