@@ -25,6 +25,22 @@ class PeopleController < ApplicationController
     	@person = Person.find(params[:id])
     end
 
+    def edit
+    	# edit method
+    	@person = Person.find(params[:id])
+    end
+
+    def update
+		# update method
+		@person = Person.find(params[:id])
+		# check for the rule
+		if(@person.update(person_params))
+			redirect_to @person
+		else
+			render 'edit'
+		end
+	end
+	
 	private def person_params
 		params.require(:person).permit(:photo_url, :first_name, :last_name, :bio, :role_id)
 	end
