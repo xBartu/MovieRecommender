@@ -9,22 +9,24 @@
 		</div>
 	</div>
 </div>
-<h2> The Cast</h2>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Role</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @movie.people.each do |person| %>
-    <tr>
-      <td><%= person.first_name %></td>
-      <td><%= person.last_name %></td>
-      <td><%= person.role.title%></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @movie.people.any? %>
+  <h2> The Cast</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movie.people.each do |person| %>
+      <tr>
+        <td><%= person.first_name %></td>
+        <td><%= person.last_name %></td>
+        <td><%= person.role.title%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
