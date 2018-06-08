@@ -58,7 +58,28 @@ class MoviesController < ApplicationController
 		redirect_to action: "index"
 	end
 
+	def add_people
+		# add_people method(view)
+		# Warning: no user interaction
+		@people = Person.all
+	end
+
+	def add_person
+		# add person method
+		# Warning: no user interaction
+		@movie = Movie.find(params[:movie_id])
+		person = Person.find(movie_person_params)
+		unless @movie.people.include?(person)
+			@movie.people << person
+		end
+		redirect_to @movie
+	end
+
 	private def movie_params
 		params.require(:movie).permit(:title, :desc, :photo, :genre_id)
+	end
+
+	private def movie_person_params
+		params.require(:movie).permit(:person_id)
 	end
 end
