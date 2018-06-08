@@ -80,6 +80,11 @@ class MoviesController < ApplicationController
 		redirect_to @movie
 	end
 
+	def notification
+		# notification method
+		@movies = Movie.where("created_at>?",current_user.created_at)
+	end
+
 	private def movie_params
 		params.require(:movie).permit(:title, :desc, :photo, :genre_id)
 	end

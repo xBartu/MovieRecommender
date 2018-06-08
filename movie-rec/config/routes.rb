@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   #roles resources
   resources :roles
 
+
+  match 'movies/notification' => 'movies#notification', :via => :get
   #movies resources
   resources :movies do
     get :add_people
