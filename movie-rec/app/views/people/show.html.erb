@@ -1,0 +1,63 @@
+<div class="jumbotron">
+	<img style="float:left" src="<%= @person.photo_url %>" class="person_image"/>
+	<div class="genres-text" >
+		<div class="col-sm-8 mx-auto">
+			<h1><%= @person.first_name %> <%= @person.last_name %></h1>
+			<p><%= @person.bio %></p>
+			<% if user_signed_in? %>
+					<a class="btn btn-primary" href="/genres/<%= @person.id %>/follow/" role="button">Like!</a>
+					<a class="btn btn-danger" href="/genres/<%= @person.id %>/unfollow/" role="button">UnLike!</a>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+		<img src="http://via.placeholder.com/350x200">
+		<h2 class="movie-title">Movie Number 1</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
+	</div>
+	<div class="col-md-4">
+		<img src="http://via.placeholder.com/350x200">
+		<h2 class="movie-title">Movie Number 2</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
+	</div>
+	<div class="col-md-4">
+		<img src="http://via.placeholder.com/350x200">
+		<h2 class="movie-title">Movie Number 3</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
+	</div>
+	<div class="col-md-4">
+		<img src="http://via.placeholder.com/350x200">
+		<h2 class="movie-title">Movie Number 1</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
+	</div>
+	<div class="col-md-4">
+		<img src="http://via.placeholder.com/350x200">
+		<h2 class="movie-title">Movie Number 1</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
+	</div>
+	<div class="col-md-4">
+		<img src="http://via.placeholder.com/350x200">
+		<h2 class="movie-title">Movie Number 1</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
+	</div>
+	<div class="col-md-4">
+		<img src="http://via.placeholder.com/350x200">
+		<h2 class="movie-title">Movie Number 1</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
+	</div>
+	<div class="col-md-4">
+		<img src="http://via.placeholder.com/350x200">
+		<h2 class="movie-title">Movie Number 1</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<p><a class="btn btn-info" href="#" role="button">View details </a></p>
+	</div>
+</div>

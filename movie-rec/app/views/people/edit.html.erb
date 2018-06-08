@@ -1,6 +1,6 @@
-<h1>Adding Person</h1>
+<h1>Editting Person</h1>
 
-<%= form_for :person, url: people_path do |f| %>
+<%= form_for :person, url: person_path(@person), method: :patch do |f| %>
     <% if @person.errors.any? %>
         <% @person.errors.full_messages.each do |msg| %>
             <%= msg %>

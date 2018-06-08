@@ -11,6 +11,7 @@ class PeopleController < ApplicationController
 		# new method
 		# Warning: no user interaction
 		@person = Person.new
+		@roles = Role.all
 	end
 
 	def create
