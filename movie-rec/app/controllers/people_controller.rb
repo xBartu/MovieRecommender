@@ -20,6 +20,11 @@ class PeopleController < ApplicationController
 			render 'new'
 	end
 
+	def show
+    	# show method
+    	@person = Person.find(params[:id])
+    end
+
 	private def person_params
 		params.require(:person).permit(:photo_url, :first_name, :last_name, :bio, :role_id)
 	end
