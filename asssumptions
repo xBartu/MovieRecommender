@@ -6,3 +6,4 @@ I assumes follows(In the real project, I do so or ask before taking further acti
 
 Techinical Assumps:
 1- Jenkins and Docker are not needed. Deploys are done through hand.
+2- No need to upload the images to S3 or to the server. 
