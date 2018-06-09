@@ -16,4 +16,8 @@ module ApplicationHelper
 		arr.count
 		# TODO END
 	end
+
+	def title(page_title)
+		page_title.empty? ?  "MovieRec" : "#{page_title} | MovieRec"
+	end
 end

@@ -1,10 +1,11 @@
+<% content_for(:title,  @person.first_name + " " + @person.last_name) %>
 <div class="jumbotron">
 	<div class="clearfix" >
 		<img style="float:left" src="<%= @person.photo_url %>" class="person_image"/>
 		<div class="person-text">
 			<div class="col-sm-8 mx-auto">
 				<h1><%= @person.first_name %> <%= @person.last_name %></h1>
-				<p><%= @person.bio %></p>
+				<p> <%= @person.bio %></p>
 				<% if user_signed_in? %>
 					<% if not @user_people.include?(@person) %>
 						<a class="btn btn-primary" href="/people/<%= @person.id %>/like/" role="button">Like!</a>
