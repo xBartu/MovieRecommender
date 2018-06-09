@@ -8,3 +8,4 @@ Techinical Assumps:
 1- Jenkins and Docker are not needed. Deploys are done through hand.
 2- No need to upload the images to S3 or to the server. 
 3- Pagination is not needed.
+4- Basic auth is just for the use and to learn RoR.(ie: Anybody can access to public repo and learn the pass. Not secure.) 
