@@ -1,7 +1,8 @@
 class MoviesController < ApplicationController
 	#movies controller
 	protect_from_forgery with: :null_session
-	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show]
+	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show, :notification]
+	before_action :authenticate_user!, except:[:index, :show, :new, :create, :destroy, :edit, :update]
 	
 	def index
 		# index method 
@@ -87,12 +88,12 @@ class MoviesController < ApplicationController
 		arr = Array.new
 		current_user.people.each do |person|
 			person.movies.each do |movie|
-				if movie.created_at > current_user.created_at
+				if movie.created_at > current_user.last_notification
 					arr.push(movie) 
 				end
 			end
 		end
-		movies = Movie.where(genre_id:current_user.genres).where("created_at>?",current_user.created_at)
+		movies = Movie.where(genre_id:current_user.genres).where("created_at>?",current_user.last_notification)
 		movies.each do |movie|
 			arr.push(movie)
 		end
