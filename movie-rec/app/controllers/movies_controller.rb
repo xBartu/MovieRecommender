@@ -98,7 +98,7 @@ class MoviesController < ApplicationController
 		movies.each do |movie|
 			arr.push(movie)
 		end
-		@h = arr.uniq
+		@newmovies = arr.uniq
 		# TODO END
 
 		current_user.last_notification = DateTime.now 
