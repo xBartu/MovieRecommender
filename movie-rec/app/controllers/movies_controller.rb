@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+	include MoviesHelper
 	#movies controller
 	protect_from_forgery with: :null_session
 	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show, :notification]
@@ -99,6 +100,9 @@ class MoviesController < ApplicationController
 		end
 		@h = arr.uniq
 		# TODO END
+
+		current_user.last_notification = DateTime.now 
+		current_user.save
 	end
 
 	private def movie_params
