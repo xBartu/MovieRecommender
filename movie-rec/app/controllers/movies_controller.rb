@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
 	#movies controller
 	protect_from_forgery with: :null_session
 	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show, :notification]
-	before_action :authenticate_user!, except:[:index, :show, :new, :create, :destroy, :edit, :update]
+	before_action :authenticate_user!, except:[:index, :show, :new, :create, :destroy, :edit, :update, :add_people, :add_person]
 	
 	def index
 		# index method 
