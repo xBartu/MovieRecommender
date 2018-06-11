@@ -1,0 +1,2 @@
+#nokogiri to parse html
+gem 'nokogiri'
