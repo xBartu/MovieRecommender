@@ -75,6 +75,7 @@ class MoviesController < ApplicationController
 		# Warning: no user interaction
 		@movie = Movie.find(params[:movie_id])
 		person = Person.find(movie_person_params["person_id"])
+		role = Person.find(movie_person_params["role_id"])
 		unless @movie.people.include?(person)
 			@movie.people << person
 		else
@@ -152,7 +153,7 @@ class MoviesController < ApplicationController
 	end
 
 	private def movie_person_params
-		params.require(:movie).permit(:person_id)
+		params.require(:movie).permit(:person_id, :role_id)
 	end
 
 	private def genre_params
