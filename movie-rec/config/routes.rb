@@ -8,11 +8,12 @@ Rails.application.routes.draw do
 
 
   match 'movies/notification' => 'movies#notification', :via => :get
+  #recommendations
+  match 'recommendations' => 'movies#recommendations', :via => :get
   #movies resources
   resources :movies do
     get :add_people
     post :add_person
-    get :recommendations
   end
 
   # genres resources

@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
 	include MoviesHelper
 	#movies controller
 	protect_from_forgery with: :null_session
-	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show, :notification]
+	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show, :notification, :recommendations]
 	before_action :authenticate_user!, except:[:index, :show, :new, :create, :destroy, :edit, :update, :add_people, :add_person]
 	
 	def index
@@ -119,7 +119,7 @@ class MoviesController < ApplicationController
 		movies.each do |movie|
 			arr.push(movie)
 		end
-		@moives = arr
+		@movies = arr.uniq
 		# TODO END
 	end
 
