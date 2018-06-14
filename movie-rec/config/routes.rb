@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :movies do
     get :add_people
     post :add_person
+    get :add_genres
+    post :add_genre
   end
 
   # genres resources

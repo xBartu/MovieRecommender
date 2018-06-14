@@ -6,6 +6,10 @@
 			<div class="col-sm-8 mx-auto">
 				<h1><%= @movie.title %></h1>
 				<p><%= @movie.desc %></p>
+        <p> Genres: <% @movie.genres.each do |genre| %>
+              <%= genre.name %>,
+            <% end %>
+        </p>
 			</div>
 		</div>
 	</div>
@@ -16,16 +20,14 @@
     <thead>
       <tr>
         <th scope="col">First</th>
-        <th scope="col">Last</th>
         <th scope="col">Role</th>
       </tr>
     </thead>
     <tbody>
       <% @movie.people.each do |person| %>
       <tr>
-        <td><%= person.first_name %></td>
-        <td><%= person.last_name %></td>
-        <td><%= person.role.title%></td>
+        <td><%= person.name %></td>
+        <td>-</td>
       </tr>
       <% end %>
     </tbody>

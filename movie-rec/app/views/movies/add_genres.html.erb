@@ -1,0 +1,10 @@
+<form action="/movies/<%= @movie.id %>/add_genre" method="POST">
+	<select name="movie[genre_id]" class="form-control">
+		<% @genres.each do |genre| %>
+			<option value="<%= genre.id %>"><%= genre.name %> </option>
+		<% end %>
+	</select>
+	<br/>
+	<input type="submit" class="btn btn-primary">
+
+</form>

@@ -11,7 +11,7 @@ module ApplicationHelper
 		end
 		movies = Movie.where("created_at>?",current_user.last_notification)
 		movies.each do |movie|
-			if movie.genres.include?(user.genres)
+			if movie.genres.include?(current_user.genres)
 				arr.push(movie)
 			end
 		end

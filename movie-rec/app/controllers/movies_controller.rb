@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
 	#movies controller
 	protect_from_forgery with: :null_session
 	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show, :notification, :recommendations]
-	before_action :authenticate_user!, except:[:index, :show, :new, :create, :destroy, :edit, :update, :add_people, :add_person]
+	before_action :authenticate_user!, except:[:index, :show, :new, :create, :destroy, :edit, :update, :add_people, :add_person, :add_genre, :add_genres]
 	
 	def index
 		# index method 
@@ -82,9 +82,29 @@ class MoviesController < ApplicationController
 		redirect_to @movie
 	end
 
+	def add_genres
+		# add_genres method(view)
+		# Warning: no user interaction
+		@genres = Genre.all
+		@movie = Movie.find(params[:movie_id])
+	end
+
+	def add_genre
+		# add_genre method
+		# Warning: no user interaction
+		@movie = Movie.find(params[:movie_id])
+		genre = Genre.find(genre_params["genre_id"])
+		unless @movie.genres.include?(genre)
+			@movie.genres << genre
+		else
+			@movie.genres.delete(genre)
+		end
+		redirect_to @movie
+	end
+
+
 	def notification
 		# notification method
-
 		# TODO START {convert it to sql}
 		arr = Array.new
 		current_user.people.each do |person|
@@ -127,10 +147,14 @@ class MoviesController < ApplicationController
 	end
 
 	private def movie_params
-		params.require(:movie).permit(:title, :desc, :photo)
+		params.require(:movie).permit(:title, :desc, :photo, :relase_date)
 	end
 
 	private def movie_person_params
 		params.require(:movie).permit(:person_id)
+	end
+
+	private def genre_params
+		params.require(:movie).permit(:genre_id)
 	end
 end
