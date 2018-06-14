@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
 	
 	def index
 		# index method 
-		@movies = Movie.all
+		@movies = Movie.all.paginate(:page => params[:page], :per_page => 2)
 	end
 
 	def show
@@ -100,14 +100,12 @@ class MoviesController < ApplicationController
 		end
 		@newmovies = arr.uniq
 		# TODO END
-
 		current_user.last_notification = DateTime.now 
 		current_user.save
 	end
 
 	def recommendations
 		# recommendations method
-
 		# TODO START {convert it to sql}
 		arr = Array.new
 		current_user.people.each do |person|
