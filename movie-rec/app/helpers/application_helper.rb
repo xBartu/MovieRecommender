@@ -13,7 +13,7 @@ module ApplicationHelper
 		genres.each do |genre|
 			genre.movies.each do |movie|
 				if movie.created_at > current_user.last_notification
-					arr.push
+					arr.push(movie)
 				end
 			end
 		end

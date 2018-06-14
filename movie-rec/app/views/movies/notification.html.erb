@@ -5,7 +5,7 @@
   <tbody>
   	<% @newmovies.each do |movie| %>
   	<tr>
-      <th scope="row"><a href="/movies/<%= movie.title%>/"><%= movie.title%></a> is added on <%= movie.genre.name%></th>
+      <th scope="row"><a href="/movies/<%= movie.id%>/"><%= movie.title%></a> is added </th>
     </tr>
 	<% end %>
   </tbody>
