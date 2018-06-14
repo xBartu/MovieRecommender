@@ -1,5 +1,5 @@
 class Role < ApplicationRecord
-	has_many :persons
+	has_and_belongs_to_many :people
 	# title should not be empty
 	validates :title, presence: true
 end
