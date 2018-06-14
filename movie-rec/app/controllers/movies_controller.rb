@@ -118,7 +118,7 @@ class MoviesController < ApplicationController
 			arr.push(movie)
 		end
 		@movies = arr.uniq
-		@movies = @movies.paginate(:per_page => 2)
+		@movies = @movies.paginate(:page => params[:page], :per_page => 12)
 		# TODO END
 	end
 
