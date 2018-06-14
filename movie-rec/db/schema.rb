@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_14_164951) do
+ActiveRecord::Schema.define(version: 2018_06_14_165153) do
 
-  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "desc"
     t.datetime "created_at", null: false
@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 2018_06_14_164951) do
     t.text "photo_url"
   end
 
-  create_table "genres_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "genres_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "genre_id", null: false
     t.bigint "user_id", null: false
     t.index ["genre_id"], name: "index_genres_users_on_genre_id"
     t.index ["user_id"], name: "index_genres_users_on_user_id"
   end
 
-  create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "desc"
     t.string "photo"
@@ -37,14 +37,16 @@ ActiveRecord::Schema.define(version: 2018_06_14_164951) do
     t.index ["genre_id"], name: "index_movies_on_genre_id"
   end
 
-  create_table "movies_people", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "movies_people", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "movie_id", null: false
     t.bigint "person_id", null: false
+    t.bigint "role_id", null: false
     t.index ["movie_id"], name: "index_movies_people_on_movie_id"
     t.index ["person_id"], name: "index_movies_people_on_person_id"
+    t.index ["role_id"], name: "index_movies_people_on_role_id"
   end
 
-  create_table "people", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "photo_url"
     t.string "first_name"
     t.string "last_name"
@@ -53,20 +55,20 @@ ActiveRecord::Schema.define(version: 2018_06_14_164951) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "people_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "people_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "person_id", null: false
     t.bigint "user_id", null: false
     t.index ["person_id"], name: "index_people_users_on_person_id"
     t.index ["user_id"], name: "index_people_users_on_user_id"
   end
 
-  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -85,4 +87,5 @@ ActiveRecord::Schema.define(version: 2018_06_14_164951) do
   end
 
   add_foreign_key "movies", "genres"
+  add_foreign_key "movies_people", "roles"
 end
