@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_14_170714) do
+ActiveRecord::Schema.define(version: 2018_06_14_172541) do
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -31,18 +31,14 @@ ActiveRecord::Schema.define(version: 2018_06_14_170714) do
     t.string "title"
     t.text "desc"
     t.string "photo"
-    t.bigint "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["genre_id"], name: "index_movies_on_genre_id"
   end
 
   create_table "movies_people", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "movie_id", null: false
     t.bigint "person_id", null: false
     t.bigint "role_id", null: false
-    t.string "name"
-    t.datetime "birthdate"
     t.index ["movie_id"], name: "index_movies_people_on_movie_id"
     t.index ["person_id"], name: "index_movies_people_on_person_id"
     t.index ["role_id"], name: "index_movies_people_on_role_id"
@@ -53,6 +49,8 @@ ActiveRecord::Schema.define(version: 2018_06_14_170714) do
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.datetime "birthdate"
   end
 
   create_table "people_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,6 +84,5 @@ ActiveRecord::Schema.define(version: 2018_06_14_170714) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "movies", "genres"
   add_foreign_key "movies_people", "roles"
 end
