@@ -1,5 +1,5 @@
+require 'will_paginate/array'
 class MoviesController < ApplicationController
-	include MoviesHelper
 	#movies controller
 	protect_from_forgery with: :null_session
 	http_basic_authenticate_with name: "root", password: "1234", except:[:index, :show, :notification, :recommendations]
@@ -118,6 +118,7 @@ class MoviesController < ApplicationController
 			arr.push(movie)
 		end
 		@movies = arr.uniq
+		@movies = @movies.paginate(:per_page => 2)
 		# TODO END
 	end
 
