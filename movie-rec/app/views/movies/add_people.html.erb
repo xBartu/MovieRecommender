@@ -1,7 +1,13 @@
 <form action="/movies/<%= @movie.id %>/add_person" method="POST">
 	<select name="movie[person_id]" class="form-control">
 		<% @people.each do |person| %>
-			<option value="<%= person.id %>"><%= person.first_name %> <%= person.last_name %>(<%= person.role.title %>)</option>
+			<option value="<%= person.id %>"><%= person.name %></option>
+		<% end %>
+	</select>
+	Role:
+	<select name="movie[person_id]" class="form-control">
+		<% @roles.each do |role| %>
+			<option value="<%= role.id %>"><%= role.title %></option>
 		<% end %>
 	</select>
 	<br/>

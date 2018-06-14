@@ -66,6 +66,7 @@ class MoviesController < ApplicationController
 		# add_people method(view)
 		# Warning: no user interaction
 		@people = Person.all
+		@roles = Role.all
 		@movie = Movie.find(params[:movie_id])
 	end
 
