@@ -7,12 +7,8 @@
         <% end %>
     <% end %>
     <p>
-        <%= f.label :first_name %><br/>
-        <%= f.text_field :first_name,  class: "form-control text"%> 
-    </p>
-    <p>
-        <%= f.label :last_name %><br/>
-        <%= f.text_field :last_name,  class: "form-control text"%> 
+        <%= f.label :name %><br/>
+        <%= f.text_field :name,  class: "form-control text"%> 
     </p>
     <p>
         <%= f.label :bio %><br/>
@@ -25,17 +21,11 @@
     </p>
 
     <p>
-    </p>
-    <p>
-        <%= f.label :role %><br/>
-        <select name="person[role_id]" class="form-control">
-            <% @roles.each do |role| %>
-              <option value="<%=role.id%>"><%=role.title%></option>
-            <% end %>
-        </select>
+        <%= f.label :birthday %><br/>
+        <%= f.date_field :birthday,  class: "form-control text"%> 
     </p>
     <p>
         <%= f.submit class: "btn btn-primary" %>
-    </p
+    </p>
 <% end %>
 

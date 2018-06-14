@@ -12,7 +12,6 @@ class PeopleController < ApplicationController
 		# new method
 		# Warning: no user interaction
 		@person = Person.new
-		@roles = Role.all
 	end
 
 	def create
@@ -37,7 +36,6 @@ class PeopleController < ApplicationController
     	# edit method
     	# Warning: no user interaction
     	@person = Person.find(params[:id])
-    	@roles = Role.all
     end
 
     def update
@@ -81,6 +79,6 @@ class PeopleController < ApplicationController
 	end
 
 	private def person_params
-		params.require(:person).permit(:photo_url, :first_name, :last_name, :bio, :role_id)
+		params.require(:person).permit(:photo_url, :name, :birthday, :bio)
 	end
 end
