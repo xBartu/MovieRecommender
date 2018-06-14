@@ -105,6 +105,24 @@ class MoviesController < ApplicationController
 		current_user.save
 	end
 
+	def recommendations
+		# recommendations method
+
+		# TODO START {convert it to sql}
+		arr = Array.new
+		current_user.people.each do |person|
+			person.movies.each do |movie|
+				arr.push(movie)
+			end
+		end
+		movies = Movie.where(genre_id:current_user.genres).where("created_at>?",current_user.last_notification)
+		movies.each do |movie|
+			arr.push(movie)
+		end
+		@moives = arr
+		# TODO END
+	end
+
 	private def movie_params
 		params.require(:movie).permit(:title, :desc, :photo, :genre_id)
 	end
