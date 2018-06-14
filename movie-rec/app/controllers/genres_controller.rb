@@ -5,7 +5,7 @@ class GenresController < ApplicationController
 
     def index
     	# index method
-        @genres = Genre.all
+        @genres = Genre.all.paginate(:page => params[:page], :per_page => 12)
     end
 
     def show
