@@ -4,7 +4,7 @@
 		<img style="float:left" src="<%= @movie.photo%>"/>
 		<div class="person-text">
 			<div class="col-sm-8 mx-auto">
-				<h1><%= @movie.title %></h1>
+				<h1><%= @movie.title %> (<%= @movie.relase_date.year %>)</h1>
 				<p><%= @movie.desc %></p>
         <p> Genres: <% @movie.genres.each do |genre| %>
               <%= genre.name %>,

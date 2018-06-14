@@ -21,17 +21,11 @@
     </p>
 
     <p>
-    </p>
-    <p>
-        <%= f.label :genre %><br/>
-        <select name="movie[genre_id]" class="form-control">
-            <% @genres.each do |genre| %>
-              <option value="<%=genre.id%>"><%=genre.name%></option>
-            <% end %>
-        </select>
+        <%= f.label :relase_date %><br/>
+        <%= f.date_field :relase_date,  class: "form-control text"%> 
     </p>
     <p>
         <%= f.submit class: "btn btn-primary" %>
-    </p
+    </p>
 <% end %>
 
