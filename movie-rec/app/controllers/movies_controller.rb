@@ -75,7 +75,7 @@ class MoviesController < ApplicationController
 		# Warning: no user interaction
 		@movie = Movie.find(params[:movie_id])
 		person = Person.find(movie_person_params["person_id"])
-		role = Person.find(movie_person_params["role_id"])
+		role = Role.find(movie_person_params["role_id"])
 		unless @movie.people.include?(person)
 			@movie.people << person
 		else
@@ -137,11 +137,9 @@ class MoviesController < ApplicationController
 				arr.push(movie)
 			end
 		end
-		movies = Movie.where("created_at>?",current_user.last_notification)
-		movies.each do |movie|
-			if movie.genres.include?(current_user.genres)
-				arr.push(movie)
-			end
+		genres = current_user.genres
+		genres.each do |genre|
+			arr.concat genre.movies
 		end
 		@movies = arr.uniq
 		@movies = @movies.paginate(:page => params[:page], :per_page => 12)
