@@ -94,9 +94,11 @@ class MoviesController < ApplicationController
 				end
 			end
 		end
-		movies = Movie.where(genre_id:current_user.genres).where("created_at>?",current_user.last_notification)
+		movies = Movie.where("created_at>?",current_user.last_notification)
 		movies.each do |movie|
-			arr.push(movie)
+			if movie.genres.include?(user.genres)
+				arr.push(movie)
+			end
 		end
 		@newmovies = arr.uniq
 		# TODO END
@@ -113,9 +115,11 @@ class MoviesController < ApplicationController
 				arr.push(movie)
 			end
 		end
-		movies = Movie.where(genre_id:current_user.genres).where("created_at>?",current_user.last_notification)
+		movies = Movie.where("created_at>?",current_user.last_notification)
 		movies.each do |movie|
-			arr.push(movie)
+			if movie.genres.include?(user.genres)
+				arr.push(movie)
+			end
 		end
 		@movies = arr.uniq
 		@movies = @movies.paginate(:page => params[:page], :per_page => 12)
@@ -123,7 +127,7 @@ class MoviesController < ApplicationController
 	end
 
 	private def movie_params
-		params.require(:movie).permit(:title, :desc, :photo, :genre_id)
+		params.require(:movie).permit(:title, :desc, :photo)
 	end
 
 	private def movie_person_params

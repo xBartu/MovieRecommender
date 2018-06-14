@@ -9,9 +9,11 @@ module ApplicationHelper
 				end
 			end
 		end
-		movies = Movie.where(genre_id:current_user.genres).where("created_at>?",current_user.last_notification)
+		movies = Movie.where("created_at>?",current_user.last_notification)
 		movies.each do |movie|
-			arr.push(movie)
+			if movie.genres.include?(user.genres)
+				arr.push(movie)
+			end
 		end
 		arr.count
 		# TODO END
