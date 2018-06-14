@@ -9,12 +9,15 @@ module ApplicationHelper
 				end
 			end
 		end
-		movies = Movie.where("created_at>?",current_user.last_notification)
-		movies.each do |movie|
-			if movie.genres.include?(current_user.genres)
-				arr.push(movie)
+		genres = current_user.genres
+		genres.each do |genre|
+			genre.movies.each do |movie|
+				if movie.created_at > current_user.last_notification
+					arr.push
+				end
 			end
 		end
+		arr = arr.uniq
 		arr.count
 		# TODO END
 	end
