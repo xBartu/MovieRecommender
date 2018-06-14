@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
 	
 	def index
 		# index method
-		@people = Person.all
+		@people = Person.all.paginate(:page => params[:page], :per_page => 12)
 	end
 
 	def new
