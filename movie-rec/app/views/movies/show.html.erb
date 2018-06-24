@@ -14,7 +14,7 @@
 		</div>
 	</div>
 </div>
-<% if @movie.people.any? %>
+<% if @people.any? %>
   <h2> The Cast</h2>
   <table class="table table-bordered">
     <thead>
@@ -24,10 +24,10 @@
       </tr>
     </thead>
     <tbody>
-      <% @movie.people.each do |person| %>
+      <% @people.each do |person| %>
       <tr>
-        <td><%= person.name %></td>
-        <td>-</td>
+        <td><%= person.person.name %></td>
+        <td><%= person.role_name %></td> 
       </tr>
       <% end %>
     </tbody>

@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
 
 	def show
 		# show method
+		@people = Movieperson.where(movie_id:params[:id])
 		@movie = Movie.find(params[:id])
 	end
 

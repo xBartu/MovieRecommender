@@ -15,6 +15,8 @@ class MoviepeopleController < ApplicationController
   # GET /moviepeople/new
   def new
     @movieperson = Movieperson.new
+    @movies = Movie.all
+    @people = Person.all
   end
 
   # GET /moviepeople/1/edit
@@ -25,7 +27,8 @@ class MoviepeopleController < ApplicationController
   # POST /moviepeople.json
   def create
     @movieperson = Movieperson.new(movieperson_params)
-
+    @movies = Movie.all
+    @people = Person.all
     respond_to do |format|
       if @movieperson.save
         format.html { redirect_to @movieperson, notice: 'Movieperson was successfully created.' }

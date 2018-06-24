@@ -29,7 +29,10 @@ class PeopleController < ApplicationController
 	def show
     	# show method
     	@person = Person.find(params[:id])
-    	@user_people = current_user.people
+   		@movies = Movie.where(id: Movieperson.select(:movie_id).where(person_id:params[:id]))
+    	if user_signed_in?
+    	   	@user_people = current_user.people
+    	end
     end
 
     def edit

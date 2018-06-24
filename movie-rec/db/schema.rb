@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_24_131057) do
+ActiveRecord::Schema.define(version: 2018_06_24_131302) do
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2018_06_24_131057) do
     t.bigint "user_id", null: false
     t.index ["genre_id"], name: "index_genres_users_on_genre_id"
     t.index ["user_id"], name: "index_genres_users_on_user_id"
+  end
+
+  create_table "moviepeople", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "person_id"
+    t.bigint "movie_id"
+    t.string "role_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_moviepeople_on_movie_id"
+    t.index ["person_id"], name: "index_moviepeople_on_person_id"
   end
 
   create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -101,6 +111,8 @@ ActiveRecord::Schema.define(version: 2018_06_24_131057) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "moviepeople", "movies"
+  add_foreign_key "moviepeople", "people"
   add_foreign_key "movies_people", "roles"
   add_foreign_key "people_roles", "people", column: "people_id"
   add_foreign_key "people_roles", "roles", column: "roles_id"

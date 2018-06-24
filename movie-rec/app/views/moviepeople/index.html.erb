@@ -15,8 +15,8 @@
   <tbody>
     <% @moviepeople.each do |movieperson| %>
       <tr>
-        <td><%= movieperson.person %></td>
-        <td><%= movieperson.movie %></td>
+        <td><%= movieperson.person.name %></td>
+        <td><%= movieperson.movie %></td> 
         <td><%= movieperson.role_name %></td>
         <td><%= link_to 'Show', movieperson %></td>
         <td><%= link_to 'Edit', edit_movieperson_path(movieperson) %></td>

@@ -13,12 +13,20 @@
 
   <div class="field">
     <%= form.label :person_id %>
-    <%= form.text_field :person_id %>
+    <select name="movieperson[person_id]">
+        <% @people.each do |person| %>
+          <option value="<%= person.id %>"><%= person.name %></option>
+        <% end %>
+    </select>
   </div>
 
   <div class="field">
     <%= form.label :movie_id %>
-    <%= form.text_field :movie_id %>
+    <select name="movieperson[movie_id]">
+        <% @movies.each do |movie| %>
+          <option value="<%= movie.id %>"><%= movie.title %></option>
+        <% end %>
+    </select>
   </div>
 
   <div class="field">
