@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   match 'recommendations' => 'movies#recommendations', :via => :get
   #movies resources
   resources :movies do
-    get :add_people
-    post :add_person
     get :add_genres
     post :add_genre
   end

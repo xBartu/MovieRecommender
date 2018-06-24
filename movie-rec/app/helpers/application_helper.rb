@@ -3,7 +3,8 @@ module ApplicationHelper
 		# TODO START {convert it to sql}
 		arr = Array.new
 		current_user.people.each do |person|
-			person.movies.each do |movie|
+			movies = Movie.where(id: Movieperson.select(:movie_id).where(person_id:person.id))
+			movies.each do |movie|
 				if movie.created_at > current_user.last_notification
 					arr.push(movie) 
 				end

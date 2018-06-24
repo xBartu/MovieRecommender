@@ -1,13 +1,19 @@
 <% content_for(:title,  "Notificiations" ) %>
 <table class="table table-hover">
-  <thead>
-  </thead>
-  <tbody>
-  	<% @newmovies.each do |movie| %>
-  	<tr>
-      <th scope="row"><a href="/movies/<%= movie.id%>/"><%= movie.title%></a> is added </th>
-    </tr>
-	<% end %>
-  </tbody>
+  <% if @newmovies.any? %>
+	  <thead>
+	  </thead>
+	  <tbody>
+	  	<% @newmovies.each do |movie| %>
+	  	<tr>
+	      <th scope="row"><a href="/movies/<%= movie.id%>/"><%= movie.title%></a> is added </th>
+	    </tr>
+		<% end %>
+		<% else %>
+		<tr>
+	    	<th scope="row">You do not have any new notification</th>
+	  	</tr>
+	  	<% end %>
+	  </tbody>
 <table>
 <hr>
