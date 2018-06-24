@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_14_200132) do
+ActiveRecord::Schema.define(version: 2018_06_24_131057) do
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -45,7 +45,9 @@ ActiveRecord::Schema.define(version: 2018_06_14_200132) do
     t.bigint "movie_id", null: false
     t.bigint "person_id", null: false
     t.bigint "role_id", null: false
+    t.bigint "people_roles_id"
     t.index ["movie_id"], name: "index_movies_people_on_movie_id"
+    t.index ["people_roles_id"], name: "index_movies_people_on_people_roles_id"
     t.index ["person_id"], name: "index_movies_people_on_person_id"
     t.index ["role_id"], name: "index_movies_people_on_role_id"
   end
