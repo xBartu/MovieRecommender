@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   #create_genres
   match 'create_genres' => 'bot#create_genres', :via => :get
 
+  #add movies
+  match 'add_movies' => 'bot#add_movies', :via => :get
+
   match 'movies/notification' => 'movies#notification', :via => :get
   #recommendations
   match 'recommendations' => 'movies#recommendations', :via => :get

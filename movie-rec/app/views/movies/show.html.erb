@@ -1,7 +1,7 @@
 <% content_for(:title,  @movie.title ) %>
 <div class="jumbotron">
 	<div class="clearfix" >
-		<img style="float:left" src="<%= @movie.photo%>"/>
+		<img style="float:left" src="<%= @movie.photo%>" height="450" width="300"/>
 		<div class="person-text">
 			<div class="col-sm-8 mx-auto">
 				<h1><%= @movie.title %> (<%= @movie.relase_date.year %>)</h1>

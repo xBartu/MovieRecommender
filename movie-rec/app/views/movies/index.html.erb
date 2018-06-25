@@ -2,7 +2,7 @@
 <div class="row">
   <% @movies.each do |movie| %>
     <div class="col-md-4">
-      <img src="<%= movie.photo %>">
+      <img src="<%= movie.photo %>" height="300" width="200">
       <h2 class="movie-title"><%= movie.title %></h2>
       <p><%= movie.desc.first(400) %>...</p>
       <p><a class="btn btn-info" href="/movies/<%= movie.id %>" role="button">View Details</a></p>
