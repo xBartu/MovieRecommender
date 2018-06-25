@@ -9,12 +9,20 @@ class BotController < ApplicationController
     end
   end
 
+  def add_genres(genres, movie)
+    # a function to add genres
+    genres.each do |genre|
+    	genre_obj = Genre.where(name: genre.name).first
+      movie.genres << genre_obj
+    end
+  end
+
   def get_movie(movie_id)
     # a method to get the movie information
     movie = Tmdb::Movie.detail(movie_id)
     # TODO check if exist
-    Movie.create(:title => movie.title, :desc => movie.overview, :photo => "https://image.tmdb.org/t/p/w600_and_h900_bestv2"+movie.poster_path, :relase_date => movie.release_date)
-    # add genres
+    movie_obj = Movie.create(:title => movie.title, :desc => movie.overview, :photo => "https://image.tmdb.org/t/p/w600_and_h900_bestv2"+movie.poster_path, :relase_date => movie.release_date)
+    self.add_genres(movie.genres, movie_obj) 
     # add cast
   end
 
@@ -27,6 +35,7 @@ class BotController < ApplicationController
   		rescue
   			#go ahead
   			# should be logged but not needed for now
+  			break
   		end
   		i += 1
   	end
