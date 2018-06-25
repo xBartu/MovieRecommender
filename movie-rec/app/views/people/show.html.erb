@@ -1,7 +1,7 @@
 <% content_for(:title,  @person.name) %>
 <div class="jumbotron">
 	<div class="clearfix" >
-		<img style="float:left" src="<%= @person.photo_url %>" class="person_image"/>
+		<img style="float:left" src="<%= @person.photo_url %>" class="person_image"/ height="300" width="200">
 		<div class="person-text">
 			<div class="col-sm-8 mx-auto">
 				<h1><%= @person.name %></h1>
@@ -23,7 +23,7 @@
 	<div class="row">
 		<% @movies.each do |movie| %>
 		<div class="col-md-4">
-			<img src="<%= movie.photo %>">
+			<img src="<%= movie.photo %>" height="300" width="200">
 			<h2 class="movie-title"><%= movie.title %></h2>
 			<p><%= movie.desc.first(400) %></p>
 			<p><a class="btn btn-info" href="/movies/<%= movie.id %>" role="button">View details </a></p>

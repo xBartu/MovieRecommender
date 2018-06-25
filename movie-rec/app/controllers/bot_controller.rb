@@ -9,6 +9,37 @@ class BotController < ApplicationController
     end
   end
 
+  def create_person(person_id)
+  	# a method to create person
+  	person = Tmdb::Person.detail(person_id)
+  	photo = "http://via.placeholder.com/300x200"
+  	if person.profile_path
+  		photo = "https://image.tmdb.org/t/p/w600_and_h900_bestv2"+person.profile_path
+  	end 
+  	return Person.create(:name => person.name, :bio => person.biography, :birthday => person.birthday, :photo_url => photo, :place_of_birth => person.place_of_birth)
+  end 
+
+  def get_or_create_person(name, person_id)
+  	# a method to get the person by name
+  	if Person.exists?(name: name)
+  		return Person.where(name: name).first
+  	else
+  		return self.create_person(person_id)
+  	end
+  end
+
+  def add_cast(movie_id, movie)
+    # a method to get cast and add them
+    # Note: person_id is used if the person does not exist in the db
+    cast = Tmdb::Movie.cast(movie_id)
+    cast.each do |info|
+	    if info.id 
+	      person = get_or_create_person(info.name, info.id)
+	      Movieperson.create(:person => person, :movie => movie, :role_name => info.character)
+	    end
+    end
+  end
+
   def add_genres(genres, movie)
     # a function to add genres
     genres.each do |genre|
@@ -22,14 +53,16 @@ class BotController < ApplicationController
     movie = Tmdb::Movie.detail(movie_id)
     # TODO check if exist
     movie_obj = Movie.create(:title => movie.title, :desc => movie.overview, :photo => "https://image.tmdb.org/t/p/w600_and_h900_bestv2"+movie.poster_path, :relase_date => movie.release_date)
-    self.add_genres(movie.genres, movie_obj) 
-    # add cast
+    if movie.genres.any?
+      self.add_genres(movie.genres, movie_obj)
+    end
+   	self.add_cast(movie_id, movie_obj)
   end
 
   def add_movies
   	# a method to add functions
-  	i = 1
-  	while Movie.count < 30
+  	i = Movie.count
+  	while Movie.count < 10001
   		begin
   			self.get_movie(i)
   		rescue
