@@ -51,7 +51,7 @@ class BotController < ApplicationController
   def get_movie(movie_id)
     # a method to get the movie information
     movie = Tmdb::Movie.detail(movie_id)
-    # TODO check if exist
+    if Movie.exists?(title: movie.title)
     movie_obj = Movie.create(:title => movie.title, :desc => movie.overview, :photo => "https://image.tmdb.org/t/p/w600_and_h900_bestv2"+movie.poster_path, :relase_date => movie.release_date)
     if movie.genres.any?
       self.add_genres(movie.genres, movie_obj)
@@ -62,13 +62,14 @@ class BotController < ApplicationController
   def add_movies
   	# a method to add functions
   	i = Movie.count
-  	while Movie.count < 10001
+  	Tmdb::Api.key(KEY)
+  	while Movie.count < 10001 do
   		begin
   			self.get_movie(i)
   		rescue
   			#go ahead
   			# should be logged but not needed for now
-  			break
+  			i += 1
   		end
   		i += 1
   	end
